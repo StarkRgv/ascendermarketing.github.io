@@ -9,3 +9,22 @@ export const eventsData = [
   "Mall Activity",
   "Dealers Meet",
 ];
+
+export const statsData = [
+  {
+    count: 80,
+    description: "Happy Clients",
+  },
+  {
+    count: 500,
+    description: "Events Managed",
+  },
+  {
+    count: 200,
+    description: "Promotions",
+  },
+  {
+    count: 50,
+    description: "Exhibitions",
+  },
+];
