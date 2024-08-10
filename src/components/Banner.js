@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { eventsData } from "../predefinedData";
 
 const Banner = () => {
+  const [activeEvent, setActiveEvent] = useState(0);
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      // Increment the index and reset to 0 if it exceeds the array length
+      setActiveEvent((prevIndex) => (prevIndex + 1) % eventsData.length);
+    }, 1000);
+
+    return () => {
+      clearInterval(timerId);
+    };
+  }, [eventsData.length]);
+
+  useEffect(() => {}, [activeEvent]);
+
   return (
     <section className="position-relative" style={{ backgroundColor: "#000" }}>
       <div id="mySidenav" className="sidenav d-none">
@@ -73,7 +89,7 @@ const Banner = () => {
           <h4 className="text-white">In Ascender we take care</h4>
           <h4 className="w-50">
             <span className="gradiant-blue text-bold">
-              {/* {events[activeEvent]} */}
+              {eventsData[activeEvent]}
             </span>
           </h4>
         </div>
@@ -87,7 +103,7 @@ const Banner = () => {
               {" "}
               <h4 className="text-rotator">
                 <span className="animated-text gradiant-blue text-bold">
-                  {/* {events[activeEvent]} */}
+                  {eventsData[activeEvent]}
                 </span>
               </h4>
             </td>
