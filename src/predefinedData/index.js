@@ -180,6 +180,29 @@ export const testimonialData = [
       "I have know Ascender Marketing for now over 8 years. Together, we have done quite a few events and the way they were executed is brilliant. The professionalism in their approach is commendable. They ensure that every small thing is taken care of when planning the event and the execution is always flawless. I recommend Ascender Marketing for all your future events.",
     image: "kartik",
   },
+  {
+    name: "Santhosh",
+    designation: "Developer - XYZ",
+    company: "Nexus",
+    description:
+      "I have know Ascender Marketing for now over 8 years. Together, we have done quite a few events and the way they were executed is brilliant. The professionalism in their approach is commendable. They ensure that every small thing is taken care of when planning the event and the execution is always flawless. I recommend Ascender Marketing for all your future events.",
+    image: "kartik",
+  },
+  {
+    name: "Imraan",
+    designation: "Manager - XYZ",
+    company: "Nexus",
+    description:
+      "I have know Ascender Marketing for now over 8 years. Together, we have done quite a few events and the way they were executed is brilliant. The professionalism in their approach is commendable. They ensure that every small thing is taken care of when planning the event and the execution is always flawless. I recommend Ascender Marketing for all your future events.",
+    image: "kartik",
+  },
+  {
+    name: "Satish",
+    designation: "Devops - ABC",
+    company: "PRO1",
+    description: "Its a good place to invest",
+    image: "vikram",
+  },
 ];
 
 export const marque1 = [

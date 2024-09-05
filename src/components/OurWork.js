@@ -1,7 +1,87 @@
-import React from "react";
-import { workCategories } from "../predefinedData";
+import React, { useEffect, useState } from "react";
+import { fetchData } from "../api/api";
+import { API } from "../constants";
+import ImageGallery from "../shared/ImageGallery";
 
 const OurWork = () => {
+  const [eventsData, setEventsData] = useState(null);
+  const [eventImages, setEventImages] = useState([]);
+  const [eventId, setEventId] = useState("all");
+  const [loading, setLoading] = useState(true);
+  const [imagesLoading, setImagesLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getEventsData = async () => {
+      try {
+        const result = await fetchData(API.EVENTS);
+        setEventsData(result);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getEventsData();
+  }, []);
+
+  // Fetch images based on the selected eventId when either eventId or eventsData changes
+  useEffect(() => {
+    const getEventImages = async () => {
+      if (!eventsData) return;
+
+      let images = [];
+      setImagesLoading(true);
+      try {
+        if (eventId === "all") {
+          // Fetch images for all events
+          for (const event of eventsData) {
+            const resp = await fetchData(`media?parent=${event.id}`);
+            const imageData = resp.map(({ alt_text, source_url }) => ({
+              alt_text,
+              source_url,
+            }));
+            images.push(...imageData);
+          }
+        } else {
+          // Fetch images for a specific event
+          const resp = await fetchData(`media?parent=${eventId}`);
+          const imageData = resp.map(({ alt_text, source_url }) => ({
+            alt_text,
+            source_url,
+          }));
+          images = imageData;
+        }
+        setEventImages(images);
+      } catch (error) {
+        setError("Failed to load event images.");
+      } finally {
+        setImagesLoading(false);
+      }
+    };
+
+    getEventImages();
+  }, [eventId, eventsData]);
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center text-danger">
+        Failed to load testimonials.
+      </div>
+    );
+  }
+
   return (
     <section className="ascender-dark m-auto py-5 text-white text-center">
       <h1 className="text-bold">Our Work</h1>
@@ -19,83 +99,28 @@ const OurWork = () => {
       </p>
 
       <div className="d-flex align-items-center justify-content-center mt-5">
-        {workCategories.map((section) => (
+        <div
+          className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
+            eventId === "all" ? "active" : ""
+          }`}
+          onClick={() => setEventId("all")}
+        >
+          All
+        </div>
+        {eventsData.map((event, index) => (
           <div
-            key={section}
-            className="work-section-button border rounded py-1 px-3 mx-2 pointer"
+            key={index}
+            className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
+              eventId === event.id ? "active" : ""
+            }`}
+            onClick={() => setEventId(event.id)}
           >
-            {section}
+            {event.title.rendered}
           </div>
         ))}
       </div>
 
-      <div className="row my-5">
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work13.png`}
-          />
-        </div>
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work0.png`}
-          />
-        </div>
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work1.jpg`}
-          />
-        </div>
-        <div className="w-100"></div>
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work2.jpg`}
-          />
-        </div>
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work12.jpg`}
-          />
-        </div>
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work4.jpg`}
-          />
-        </div>
-        <div className="w-100"></div>
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work5.jpg`}
-          />
-        </div>
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work6.jpg`}
-          />
-        </div>
-        <div className="col-4">
-          <img
-            className="w-100"
-            height="300px"
-            src={`/images/work/work7.jpg`}
-          />
-        </div>
-      </div>
+      <ImageGallery images={eventImages} imagesLoading={imagesLoading} />
     </section>
   );
 };

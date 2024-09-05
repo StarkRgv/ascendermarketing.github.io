@@ -1,12 +1,51 @@
-import React, { useEffect } from "react";
-import { testimonialData, marque1, marque2 } from "../predefinedData";
+import React, { useState, useEffect } from "react";
+import { marque1, marque2 } from "../predefinedData";
+import { fetchData } from "../api/api";
+import { API } from "../constants";
 
 const Testimonial = () => {
+  const [testimonialData, setTestimonialData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     setTimeout(() => {
-      document.getElementById("next").click();
+      document.getElementById("next")?.click();
     }, 5000);
   }, []);
+
+  useEffect(() => {
+    const getTestimonialData = async () => {
+      try {
+        const result = await fetchData(API.TESTIMONIAL);
+        setTestimonialData(result);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getTestimonialData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center text-danger">
+        Failed to load testimonials.
+      </div>
+    );
+  }
 
   return (
     <section className="p-5">
@@ -70,13 +109,13 @@ const Testimonial = () => {
                   style={{ borderRadius: "50%" }}
                   height="72"
                   width="72"
-                  src={`/images/${testimonial.image}.jpeg`}
+                  src={testimonial.featured_image.url}
                 />
 
                 <div className="ms-3">
-                  <h5 className="text-bold my-2">{testimonial.name}</h5>
-                  <p className="mb-1">{testimonial.designation}</p>
-                  <p className="mb-1 text-bold">{testimonial.company}</p>
+                  <h5 className="text-bold my-2">{testimonial.acf.name}</h5>
+                  <p className="mb-1">{testimonial.acf.designation}</p>
+                  <p className="mb-1 text-bold">{testimonial.acf.company}</p>
                 </div>
               </div>
 
@@ -94,11 +133,12 @@ const Testimonial = () => {
                   width="16"
                   src={"/images/semicolon.png"}
                 />
-                <p className="font14">{testimonial.description}</p>
+                <p className="font14">{testimonial.acf.description}</p>
               </div>
             </div>
           ))}
         </div>
+
         <br />
         <br />
         <br />
