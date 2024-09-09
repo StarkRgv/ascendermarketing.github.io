@@ -8,4 +8,5 @@ export const API = {
   TESTIMONIAL: "/testimonial",
   EVENTS: "/events",
   CLIENTS: "/clients",
+  HOW_WE_WORK: "/how-we-work",
 };
