@@ -1,8 +1,28 @@
-import React, { useState } from "react";
-import { serviceData } from "../predefinedData";
+import React, { useEffect, useState } from "react";
+import { fetchData } from "../api/api";
+import { API } from "../constants";
+import { removeHtmlTags } from "../utils";
 
 const OurServices = () => {
+  const [serviceData, setServiceData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const getServicesData = async () => {
+      try {
+        const result = await fetchData(API.SERVICES);
+        setServiceData(result);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getServicesData();
+  }, []);
 
   return (
     <section className="py-5 my-5 ascender-light">
@@ -32,7 +52,7 @@ const OurServices = () => {
                 active === index ? "active" : ""
               }`}
             >
-              {service.name}
+              {service.title.rendered}
             </h3>
           ))}
         </div>
@@ -65,19 +85,19 @@ const OurServices = () => {
               } col-9 pe-3 carousel-item`}
             >
               <div className="pe-3">
-                <p>{service.descrition}</p>
+                <p>{removeHtmlTags(service.content.rendered)}</p>
                 <div
                   style={{ overflowX: "auto", paddingRight: "25%" }}
                   className="d-flex"
                 >
-                  {service.images.map((image, imageIndex) => (
+                  {/* {service.images.map((image, imageIndex) => (
                     <img
                       style={{ height: "169px", width: "269px" }}
                       key={imageIndex}
                       className="mx-2 rounded"
                       src={`/images/${image}`}
                     />
-                  ))}
+                  ))} */}
                 </div>
               </div>
             </div>

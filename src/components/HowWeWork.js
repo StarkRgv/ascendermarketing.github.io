@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchData } from "../api/api";
 import { API } from "../constants";
+import { removeHtmlTags } from "../utils";
 
 const HowWeWork = () => {
   const [workData, setWorkData] = useState([]);
@@ -22,10 +23,6 @@ const HowWeWork = () => {
 
     getHowWeWorkData();
   }, []);
-
-  const removeHtmlTags = (string) => {
-    return string.replace(/<\/?[^>]+(>|$)/g, "");
-  };
 
   return (
     <section className="p-5">

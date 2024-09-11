@@ -9,6 +9,7 @@ import OurBrand from "./components/OurBrands";
 import Testimonial from "./components/Testimonial";
 import OurPresence from "./components/OurPresence";
 import Footer from "./components/Footer";
+import OurVision from "./components/OurVision";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <WhyAscender />
       <OurStats />
       <HowWeWork />
+      <OurVision />
       <OurServices />
       <OurWork />
       <OurBrand />

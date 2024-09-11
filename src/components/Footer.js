@@ -4,12 +4,11 @@ const Footer = () => {
   return (
     <section className="ascender-dark py-5 px-3">
       <h1 className="text-bold outlined text-center">TOGETHER WE EXCEL</h1>
-
-      <div className="row text-white">
+      <div className="d-flex justify-content-between align-items-center">
         <div className="col-4 text-center">
           <img src={"/images/Ascender Logo_Black-01 3.png"} />
         </div>
-        <div className="col-8 my-5 pt-3">
+        <div className="text-white">
           <h2>
             <span className="text-bold">Want to collaborate?</span>
             <br />
@@ -22,20 +21,66 @@ const Footer = () => {
               info@ascendermarketing.com
             </a>
             <br />
-            <br />
             For HR related queries email us on{" "}
             <a href="mailto:swati@ascendermarketing.com">
               swati@ascendermarketing.com
             </a>
           </p>
+          <div className="row">
+            <p className="text-bold">Follow Us</p>
+            <div className="d-flex">
+              <a
+                target="_blank"
+                href="https://www.instagram.com/ascender_marketing_events?igsh=NHhsd2t6YWxjenV1&utm_source=qr"
+                rel="noreferrer"
+              >
+                <img
+                  style={{ height: 30 }}
+                  className="me-2"
+                  src={"/images/Insta.png"}
+                />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/company/ascender-marketing-solutions/mycompany/?viewAsMember=true"
+                rel="noreferrer"
+              >
+                <img
+                  style={{ height: 30 }}
+                  className="me-2"
+                  src={"/images/twitter.png"}
+                />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/ascendermarketing"
+                rel="noreferrer"
+              >
+                <img
+                  style={{ height: 30 }}
+                  className="me-2"
+                  src={"/images/facebook.png"}
+                />
+              </a>
+              {/* <a
+                target="_blank"
+                href="https://www.facebook.com/ascendermarketing"
+                rel="noreferrer"
+              >
+                <img
+                  style={{ height: 30 }}
+                  className="me-2"
+                  src={"/images/youtube.png"}
+                />
+              </a> */}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="row mt-5 text-white w-75 m-auto">
-        <div className="col-4">
-          <p className="text-bold">Contact Us</p>
-          <h5 style={{ textShadow: "3px 1px 3px #fff" }} className="text-bold">
+        <div className="text-white">
+          <h6 className="text-bold">Contact Us</h6>
+          <h2 style={{ textShadow: "1px 1px 2px #fff" }}>
             Ascender Marketing Solutions Private Limited
-          </h5>
+          </h2>
           <p>
             Tower A, Paras Twin Towers, Golf Course Road, Sector 54, Gurugram,
             Haryana, 122011
@@ -73,45 +118,6 @@ const Footer = () => {
               href="mailto:info@ascendermarketing.com"
             >
               info@ascendermarketing.com
-            </a>
-          </div>
-        </div>
-        <div className="col-2"></div>
-        <div className="col-6">
-          <p className="text-bold">Follow Us</p>
-          <div className="d-flex">
-            <a
-              target="_blank"
-              href="https://www.instagram.com/ascender_marketing_events?igsh=NHhsd2t6YWxjenV1&utm_source=qr"
-              rel="noreferrer"
-            >
-              <img
-                style={{ height: 30 }}
-                className="me-2"
-                src={"/images/Insta.png"}
-              />
-            </a>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/company/ascender-marketing-solutions/mycompany/?viewAsMember=true"
-              rel="noreferrer"
-            >
-              <img
-                style={{ height: 30 }}
-                className="me-2"
-                src={"/images/twitter.png"}
-              />
-            </a>
-            <a
-              target="_blank"
-              href="https://www.facebook.com/ascendermarketing"
-              rel="noreferrer"
-            >
-              <img
-                style={{ height: 30 }}
-                className="me-2"
-                src={"/images/facebook.png"}
-              />
             </a>
           </div>
         </div>
