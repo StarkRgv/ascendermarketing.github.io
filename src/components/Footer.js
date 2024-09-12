@@ -5,10 +5,10 @@ const Footer = () => {
     <section className="ascender-dark py-5 px-3">
       <h1 className="text-bold outlined text-center">TOGETHER WE EXCEL</h1>
       <div className="d-flex justify-content-between align-items-center">
-        <div className="col-4 text-center">
+        <div className="text-center m-3">
           <img src={"/images/Ascender Logo_Black-01 3.png"} />
         </div>
-        <div className="text-white">
+        <div className="text-white text-center m-3">
           <h2>
             <span className="text-bold">Want to collaborate?</span>
             <br />
@@ -28,7 +28,7 @@ const Footer = () => {
           </p>
           <div className="row">
             <p className="text-bold">Follow Us</p>
-            <div className="d-flex">
+            <div className="d-flex justify-content-center">
               <a
                 target="_blank"
                 href="https://www.instagram.com/ascender_marketing_events?igsh=NHhsd2t6YWxjenV1&utm_source=qr"
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="text-white">
+        <div className="text-white m-3">
           <h6 className="text-bold">Contact Us</h6>
           <h2 style={{ textShadow: "1px 1px 2px #fff" }}>
             Ascender Marketing Solutions Private Limited
@@ -85,40 +85,44 @@ const Footer = () => {
             Tower A, Paras Twin Towers, Golf Course Road, Sector 54, Gurugram,
             Haryana, 122011
           </p>
-          <div className="d-flex align-items-center">
-            <img
-              style={{ height: 20 }}
-              className="me-1"
-              src={"/images/Phone.png"}
-            />
-            <span className="mx-2">
-              <a
-                className="text-white text-decoration-none"
-                href="tel:7722078396"
-              >
-                7722078396
-              </a>
-              <span> / </span>
-              <a
-                className="text-white text-decoration-none"
-                href="tel:9579740519"
-              >
-                9579740519
-              </a>
-            </span>
-          </div>
-          <div className="d-flex align-items-center mt-2">
-            <img
-              style={{ height: 20 }}
-              className="me-1"
-              src={"/images/Email.png"}
-            />
-            <a
-              className="text-white text-decoration-none"
-              href="mailto:info@ascendermarketing.com"
-            >
-              info@ascendermarketing.com
-            </a>
+          <div className="d-flex align-items-center justify-content-start">
+            <div>
+              <div className="d-flex align-items-center">
+                <img
+                  style={{ height: 20 }}
+                  className="me-1"
+                  src={"/images/Phone.png"}
+                />
+                <span className="mx-2">
+                  <a
+                    className="text-white text-decoration-none"
+                    href="tel:7722078396"
+                  >
+                    7722078396
+                  </a>
+                  <span> / </span>
+                  <a
+                    className="text-white text-decoration-none"
+                    href="tel:9579740519"
+                  >
+                    9579740519
+                  </a>
+                </span>
+              </div>
+              <div className="d-flex align-items-center mt-2">
+                <img
+                  style={{ height: 20 }}
+                  className="me-1"
+                  src={"/images/Email.png"}
+                />
+                <a
+                  className="text-white text-decoration-none"
+                  href="mailto:info@ascendermarketing.com"
+                >
+                  info@ascendermarketing.com
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
