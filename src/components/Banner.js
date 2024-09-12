@@ -3,6 +3,7 @@ import { eventsData } from "../predefinedData";
 
 const Banner = () => {
   const [activeEvent, setActiveEvent] = useState(0);
+  const [isNavOpen, setIsNavOpen] = useState(false); // State to track if sidebar is open
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -15,15 +16,33 @@ const Banner = () => {
     };
   }, [eventsData.length]);
 
-  useEffect(() => {}, [activeEvent]);
+  const openNav = () => {
+    setIsNavOpen(true);
+  };
+
+  const closeNav = () => {
+    setIsNavOpen(false);
+  };
 
   return (
     <section className="position-relative" style={{ backgroundColor: "#000" }}>
-      <div id="mySidenav" className="sidenav d-none">
+      <div
+        id="mySidenav"
+        className={`sidenav ${isNavOpen ? "d-block" : "d-none"}`}
+        style={{
+          width: isNavOpen ? "25%" : "0",
+          zIndex: 5,
+          transition: "width 0.3s",
+          overflowX: "hidden",
+          position: "fixed",
+          height: "100%",
+          backgroundColor: "#111",
+        }}
+      >
         <a
           href="javascript:void(0)"
           className="closebtn"
-          // onClick={() => closeNav()}
+          onClick={() => closeNav()}
         >
           &times;
         </a>
@@ -37,13 +56,13 @@ const Banner = () => {
 
       <img
         className="position-absolute"
-        style={{ left: "60px", top: "10px" }}
+        style={{ left: "60px", top: "10px", zIndex: 2 }}
         src={"/images/Ascender Logo_Black-01 2.png"}
       />
       <img
-        // onClick={() => openNav()}
+        onClick={() => openNav()}
         className="position-absolute"
-        style={{ right: "60px", top: "10px" }}
+        style={{ right: "60px", top: "10px", zIndex: 3 }}
         src={"/images/Frame 2.png"}
       />
 
@@ -54,7 +73,7 @@ const Banner = () => {
       />
       <video
         className="w-100"
-        style={{ height: "800px" }}
+        style={{ height: "800px", zIndex: 1, position: "relative" }}
         preload="auto"
         autoPlay={true}
         loop="loop"
@@ -65,7 +84,7 @@ const Banner = () => {
 
       <div
         className="position-absolute w-100 d-flex align-items-center justify-content-center flex-column"
-        style={{ zIndex: 1, bottom: "50px" }}
+        style={{ zIndex: 4, bottom: "50px" }}
       >
         <p className="font14 text-white m-0">Know more</p>
         <div
@@ -82,12 +101,12 @@ const Banner = () => {
       </div>
 
       <div
-        style={{ zIndex: 1, bottom: "10px" }}
+        style={{ zIndex: 4, bottom: "10px" }}
         className="w-100 position-absolute d-flex align-items-center justify-content-center"
       >
         <div className="d-none flex-row">
           <h4 className="text-white">In Ascender we take care</h4>
-          <h4 className="w-50">
+          <h4 className="w-25">
             <span className="gradiant-blue text-bold">
               {eventsData[activeEvent]}
             </span>
@@ -100,7 +119,6 @@ const Banner = () => {
               <h4 className="text-white">In Ascender we take care</h4>
             </td>
             <td width={250}>
-              {" "}
               <h4 className="text-rotator">
                 <span className="animated-text gradiant-blue text-bold">
                   {eventsData[activeEvent]}
