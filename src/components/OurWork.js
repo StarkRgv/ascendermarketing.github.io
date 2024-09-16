@@ -83,7 +83,10 @@ const OurWork = () => {
   }
 
   return (
-    <section className="ascender-dark m-auto py-5 text-white text-center">
+    <section
+      id="workSection"
+      className="ascender-dark m-auto py-5 text-white text-center"
+    >
       <h1 className="text-bold">Our Work</h1>
       <p>
         Join hands with Ascender Marketing to transform your ideas into

@@ -25,7 +25,7 @@ const OurServices = () => {
   }, []);
 
   return (
-    <section className="py-5 my-5 ascender-light">
+    <section id="serviveSection" className="py-5 my-5 ascender-light">
       <div className="w-50 m-auto text-center">
         <h2 className="text-bold">Our Services</h2>
         <p>

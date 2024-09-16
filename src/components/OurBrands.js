@@ -23,7 +23,7 @@ const OurBrand = () => {
   }, []);
 
   return (
-    <section className="ascender-light p-5">
+    <section id="clientsSection" className="ascender-light p-5">
       <h2 className="text-bold text-center">Brands trusted on us</h2>
 
       <div className="slider-container">

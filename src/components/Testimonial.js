@@ -48,15 +48,7 @@ const Testimonial = () => {
   }
 
   return (
-    <section className="p-5">
-      <h4 className="text-center">
-        Words from our <span className="text-bold">Happy Clients</span>
-      </h4>
-      <p className="text-center">
-        We take pride in ensuring that our clients have a good working
-        experience.
-      </p>
-
+    <section id="testimonialSection" className="p-5">
       <div>
         <marquee scrollamount="20" direction="right">
           {marque1.map((el) => (
@@ -81,6 +73,14 @@ const Testimonial = () => {
           ))}
         </marquee>
       </div>
+
+      <h4 className="text-center">
+        Words from our <span className="text-bold">Happy Clients</span>
+      </h4>
+      <p className="text-center">
+        We take pride in ensuring that our clients have a good working
+        experience.
+      </p>
 
       <div
         id="carouselExampleIndicators"

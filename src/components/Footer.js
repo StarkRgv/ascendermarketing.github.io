@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section className="ascender-dark py-5 px-3">
+    <section id="contactSection" className="ascender-dark py-5 px-3">
       <h1 className="text-bold outlined text-center">TOGETHER WE EXCEL</h1>
       <div className="d-flex justify-content-between align-items-center">
         <div className="text-center m-3">
@@ -62,9 +62,9 @@ const Footer = () => {
                   src={"/images/facebook.png"}
                 />
               </a>
-              {/* <a
+              <a
                 target="_blank"
-                href="https://www.facebook.com/ascendermarketing"
+                href="https://studio.youtube.com/channel/UC1jYK-YXD0EYwY0mkHqwrzw/videos/upload?filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D"
                 rel="noreferrer"
               >
                 <img
@@ -72,7 +72,7 @@ const Footer = () => {
                   className="me-2"
                   src={"/images/youtube.png"}
                 />
-              </a> */}
+              </a>
             </div>
           </div>
         </div>

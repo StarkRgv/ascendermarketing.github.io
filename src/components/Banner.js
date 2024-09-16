@@ -24,8 +24,19 @@ const Banner = () => {
     setIsNavOpen(false);
   };
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="position-relative" style={{ backgroundColor: "#000" }}>
+    <section
+      id="homeSection"
+      className="position-relative"
+      style={{ backgroundColor: "#000" }}
+    >
       <div
         id="mySidenav"
         className={`sidenav ${isNavOpen ? "d-block" : "d-none"}`}
@@ -46,12 +57,42 @@ const Banner = () => {
         >
           &times;
         </a>
-        <a href="#">Home</a>
-        <a href="#">Our Clients</a>
-        <a href="#">Our Services</a>
-        <a href="#">Our Work</a>
-        <a href="#">Testimonials</a>
-        <a href="#">Contact Us</a>
+        <a
+          href="javascript:void(0)"
+          onClick={() => scrollToSection("homeSection")}
+        >
+          Home
+        </a>
+        <a
+          href="javascript:void(0)"
+          onClick={() => scrollToSection("clientsSection")}
+        >
+          Our Clients
+        </a>
+        <a
+          href="javascript:void(0)"
+          onClick={() => scrollToSection("serviveSection")}
+        >
+          Our Services
+        </a>
+        <a
+          href="javascript:void(0)"
+          onClick={() => scrollToSection("workSection")}
+        >
+          Our Work
+        </a>
+        <a
+          href="javascript:void(0)"
+          onClick={() => scrollToSection("testimonialSection")}
+        >
+          Testimonials
+        </a>
+        <a
+          href="javascript:void(0)"
+          onClick={() => scrollToSection("contactSection")}
+        >
+          Contact Us
+        </a>
       </div>
 
       <img
