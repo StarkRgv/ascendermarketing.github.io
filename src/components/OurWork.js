@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { fetchData } from "../api/api";
 import { API } from "../constants";
 import ImageGallery from "../shared/ImageGallery";
+import ErrorMessage from "./ErrorMessage";
 
 const OurWork = () => {
   const [eventsData, setEventsData] = useState(null);
@@ -11,13 +12,31 @@ const OurWork = () => {
   const [imagesLoading, setImagesLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Helper function to fetch event images
+  const fetchEventImages = async (acfArr) => {
+    const images = await Promise.all(
+      acfArr.map(async (item) => {
+        const result = await fetchData(
+          `media/${item.event_images_by_category}`
+        );
+        return {
+          alt_text: result.title.rendered,
+          source_url: result.source_url,
+        };
+      })
+    );
+    return images;
+  };
+
+  // Fetch events data
   useEffect(() => {
     const getEventsData = async () => {
       try {
         const result = await fetchData(API.EVENTS);
         setEventsData(result);
       } catch (error) {
-        setError(error);
+        setError("Failed to load events data.");
+        console.error("Error fetching events data:", error);
       } finally {
         setLoading(false);
       }
@@ -26,36 +45,36 @@ const OurWork = () => {
     getEventsData();
   }, []);
 
-  // Fetch images based on the selected eventId when either eventId or eventsData changes
+  // Fetch images based on the selected eventId
   useEffect(() => {
-    const getEventImages = async () => {
-      if (!eventsData) return;
+    if (!eventsData) return; // Skip if eventsData hasn't loaded
 
-      let images = [];
+    const getEventImages = async () => {
       setImagesLoading(true);
+      setError(null); // Reset error state on each fetch attempt
+      let images = [];
+
       try {
         if (eventId === "all") {
-          // Fetch images for all events
-          for (const event of eventsData) {
-            const resp = await fetchData(`media?parent=${event.id}`);
-            const imageData = resp.map(({ alt_text, source_url }) => ({
-              alt_text,
-              source_url,
-            }));
-            images.push(...imageData);
-          }
+          const allImages = await Promise.all(
+            eventsData.flatMap(async (event) => {
+              const acfArr = event?.acf.event_images || [];
+              return await fetchEventImages(acfArr);
+            })
+          );
+          images = allImages.flat();
         } else {
-          // Fetch images for a specific event
-          const resp = await fetchData(`media?parent=${eventId}`);
-          const imageData = resp.map(({ alt_text, source_url }) => ({
-            alt_text,
-            source_url,
-          }));
-          images = imageData;
+          const selectedEvent = eventsData.find(
+            (event) => event.id === eventId
+          );
+          const acfArr = selectedEvent?.acf.event_images || [];
+          images = await fetchEventImages(acfArr);
         }
+
         setEventImages(images);
       } catch (error) {
         setError("Failed to load event images.");
+        console.error("Error fetching images:", error);
       } finally {
         setImagesLoading(false);
       }
@@ -63,6 +82,37 @@ const OurWork = () => {
 
     getEventImages();
   }, [eventId, eventsData]);
+
+  // Memoized rendering of event buttons
+  const renderButtons = useMemo(() => {
+    if (!eventsData) return null;
+    return (
+      <>
+        <div
+          className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
+            eventId === "all" ? "active" : ""
+          }`}
+          onClick={() => setEventId("all")}
+        >
+          All
+        </div>
+        {eventsData.map((event) => (
+          <div
+            key={event.id}
+            className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
+              eventId === event.id ? "active" : ""
+            }`}
+            onClick={() => setEventId(event.id)}
+          >
+            {event.title.rendered}
+          </div>
+        ))}
+      </>
+    );
+  }, [eventId, eventsData]);
+
+  // Handle click events with useCallback to prevent unnecessary re-renders
+  const handleEventClick = useCallback((id) => setEventId(id), []);
 
   if (loading) {
     return (
@@ -75,11 +125,7 @@ const OurWork = () => {
   }
 
   if (error) {
-    return (
-      <div className="text-center text-danger">
-        Failed to load testimonials.
-      </div>
-    );
+    return <ErrorMessage message="Failed to fetch Our work data" />;
   }
 
   return (
@@ -102,25 +148,7 @@ const OurWork = () => {
       </p>
 
       <div className="d-flex align-items-center justify-content-center mt-5">
-        <div
-          className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
-            eventId === "all" ? "active" : ""
-          }`}
-          onClick={() => setEventId("all")}
-        >
-          All
-        </div>
-        {eventsData.map((event, index) => (
-          <div
-            key={index}
-            className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
-              eventId === event.id ? "active" : ""
-            }`}
-            onClick={() => setEventId(event.id)}
-          >
-            {event.title.rendered}
-          </div>
-        ))}
+        {renderButtons}
       </div>
 
       <ImageGallery images={eventImages} imagesLoading={imagesLoading} />
