@@ -114,20 +114,6 @@ const OurWork = () => {
   // Handle click events with useCallback to prevent unnecessary re-renders
   const handleEventClick = useCallback((id) => setEventId(id), []);
 
-  if (loading) {
-    return (
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <ErrorMessage message="Failed to fetch Our work data" />;
-  }
-
   return (
     <section
       id="workSection"
@@ -147,11 +133,23 @@ const OurWork = () => {
         as we embark on a beautiful journey of chasing dreams!
       </p>
 
-      <div className="d-flex align-items-center justify-content-center mt-5">
-        {renderButtons}
-      </div>
+      {loading && (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden"></span>
+          </div>
+        </div>
+      )}
+      {error && <ErrorMessage message="Failed to fetch Work data" />}
+      {!loading && !error && (
+        <>
+          <div className="d-flex align-items-center justify-content-center mt-5">
+            {renderButtons}
+          </div>
 
-      <ImageGallery images={eventImages} imagesLoading={imagesLoading} />
+          <ImageGallery images={eventImages} imagesLoading={imagesLoading} />
+        </>
+      )}
     </section>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchData } from "../api/api";
 import { API } from "../constants";
 import { removeHtmlTags } from "../utils";
+import ErrorMessage from "./ErrorMessage";
 
 const HowWeWork = () => {
   const [workData, setWorkData] = useState([]);
@@ -39,9 +40,7 @@ const HowWeWork = () => {
             </div>
           </div>
         )}
-        {error && (
-          <div className="text-center text-danger">Failed to load data.</div>
-        )}
+        {error && <ErrorMessage message="Failed to fetch Work data" />}
         {!loading && (
           <>
             <div className="row">

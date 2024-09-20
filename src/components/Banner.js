@@ -3,11 +3,9 @@ import { eventsData } from "../predefinedData";
 
 const Banner = () => {
   const [activeEvent, setActiveEvent] = useState(0);
-  const [isNavOpen, setIsNavOpen] = useState(false); // State to track if sidebar is open
 
   useEffect(() => {
     const timerId = setInterval(() => {
-      // Increment the index and reset to 0 if it exceeds the array length
       setActiveEvent((prevIndex) => (prevIndex + 1) % eventsData.length);
     }, 1000);
 
@@ -16,105 +14,22 @@ const Banner = () => {
     };
   }, [eventsData.length]);
 
-  const openNav = () => {
-    setIsNavOpen(true);
-  };
-
-  const closeNav = () => {
-    setIsNavOpen(false);
-  };
-
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       id="homeSection"
       className="position-relative"
       style={{ backgroundColor: "#000" }}
     >
-      <div
-        id="mySidenav"
-        className={`sidenav ${isNavOpen ? "d-block" : "d-none"}`}
-        style={{
-          width: isNavOpen ? "25%" : "0",
-          zIndex: 5,
-          transition: "width 0.3s",
-          overflowX: "hidden",
-          position: "fixed",
-          height: "100%",
-          backgroundColor: "#111",
-        }}
-      >
-        <a
-          href="javascript:void(0)"
-          className="closebtn"
-          onClick={() => closeNav()}
-        >
-          &times;
-        </a>
-        <a
-          href="javascript:void(0)"
-          onClick={() => scrollToSection("homeSection")}
-        >
-          Home
-        </a>
-        <a
-          href="javascript:void(0)"
-          onClick={() => scrollToSection("clientsSection")}
-        >
-          Our Clients
-        </a>
-        <a
-          href="javascript:void(0)"
-          onClick={() => scrollToSection("serviveSection")}
-        >
-          Our Services
-        </a>
-        <a
-          href="javascript:void(0)"
-          onClick={() => scrollToSection("workSection")}
-        >
-          Our Work
-        </a>
-        <a
-          href="javascript:void(0)"
-          onClick={() => scrollToSection("testimonialSection")}
-        >
-          Testimonials
-        </a>
-        <a
-          href="javascript:void(0)"
-          onClick={() => scrollToSection("contactSection")}
-        >
-          Contact Us
-        </a>
-      </div>
-
-      <img
-        className="position-absolute"
-        style={{ left: "60px", top: "10px", zIndex: 2 }}
-        src={"/images/Ascender Logo_Black-01 2.png"}
-      />
-      <img
-        onClick={() => openNav()}
-        className="position-absolute"
-        style={{ right: "60px", top: "10px", zIndex: 3 }}
-        src={"/images/Frame 2.png"}
-      />
-
+      {/* Banner Content */}
       <img
         className="d-none w-100"
         style={{ height: "800px" }}
         src={"/images/Banner.png"}
+        alt="Banner"
       />
       <video
         className="w-100"
-        style={{ height: "800px", zIndex: 1, position: "relative" }}
+        style={{ height: "700px", zIndex: 1, position: "relative" }}
         preload="auto"
         autoPlay={true}
         loop="loop"
@@ -141,19 +56,11 @@ const Banner = () => {
         ></div>
       </div>
 
+      {/* Event Rotator */}
       <div
         style={{ zIndex: 4, bottom: "10px" }}
         className="w-100 position-absolute d-flex align-items-center justify-content-center"
       >
-        <div className="d-none flex-row">
-          <h4 className="text-white">In Ascender we take care</h4>
-          <h4 className="w-25">
-            <span className="gradiant-blue text-bold">
-              {eventsData[activeEvent]}
-            </span>
-          </h4>
-        </div>
-
         <table>
           <tr>
             <td width={310}>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchData } from "../api/api";
 import { API } from "../constants";
+import ErrorMessage from "./ErrorMessage";
 
 const OurBrand = () => {
   const [clients, setClients] = useState([]);
@@ -45,11 +46,7 @@ const OurBrand = () => {
                   alt={client.title.rendered}
                 />
               ))}
-            {error && (
-              <div className="text-center text-danger">
-                Failed to load clients.
-              </div>
-            )}
+            {error && <ErrorMessage message="Failed to fetch brand data" />}
           </div>
         </div>
       </div>
