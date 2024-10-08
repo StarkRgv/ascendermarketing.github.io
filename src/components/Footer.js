@@ -64,7 +64,7 @@ const Footer = () => {
               </a>
               <a
                 target="_blank"
-                href="https://studio.youtube.com/channel/UC1jYK-YXD0EYwY0mkHqwrzw/videos/upload?filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D"
+                href="https://youtube.com/@ascendermarketingsolutions?si=1IH0WYHJxN4HAT1f"
                 rel="noreferrer"
               >
                 <img
