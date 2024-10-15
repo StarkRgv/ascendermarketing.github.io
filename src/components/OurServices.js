@@ -89,7 +89,7 @@ const OurServices = () => {
 
   return (
     <section id="serviceSection" className="py-5 my-5 ascender-light">
-      <div className="w-50 m-auto text-center">
+      <div className="container m-auto text-center">
         <h2 className="text-bold">Our Services</h2>
         <p>
           We turn events into unforgettable experiences. Our comprehensive suite
@@ -100,6 +100,7 @@ const OurServices = () => {
           meticulous evaluation.
         </p>
       </div>
+
       {loading && (
         <div className="d-flex justify-content-center">
           <div className="spinner-border" role="status">
@@ -107,31 +108,43 @@ const OurServices = () => {
           </div>
         </div>
       )}
+
       {error && <ErrorMessage message="Failed to fetch Services data" />}
+
       {!loading && !error && (
         <div
           id="carouselExampleIndicators0"
           className="carousel carousel-dark slide my-5"
         >
+          {/* Responsive Heading Section */}
           <div className="row">
-            {serviceData.map((service, index) => (
-              <h3
-                key={index}
-                onClick={() => {
-                  setServiceId(service.id);
-                }}
-                data-bs-target="#carouselExampleIndicators0"
-                data-bs-slide-to={index}
-                className={`col-2 text-center text-nowrap pointer service-heading ${
-                  serviceId === service.id ? "active" : ""
-                }`}
-              >
-                {service.title.rendered}
-              </h3>
-            ))}
+            <div className="col-12 d-flex flex-lg-row flex-column">
+              {serviceData.map((service, index) => (
+                <h3
+                  key={index}
+                  onClick={() => {
+                    setServiceId(service.id);
+                  }}
+                  data-bs-target="#carouselExampleIndicators0"
+                  data-bs-slide-to={index}
+                  className={`text-center text-nowrap pointer service-heading ${
+                    serviceId === service.id ? "active" : ""
+                  } p-1`}
+                  style={{
+                    cursor: "pointer",
+                    flex: "1", // Distribute items equally in the row on large screens
+                  }}
+                >
+                  {service.title.rendered}
+                </h3>
+              ))}
+            </div>
           </div>
+
+          {/* Carousel Content */}
           <div className="carousel-inner row mt-3">
-            <div className="col-3 position-relative">
+            {/* Static Line for large screens */}
+            <div className="d-none d-lg-block col-3 position-relative">
               <hr
                 style={{
                   borderTop: "2px solid #C5D1E8",
@@ -151,15 +164,15 @@ const OurServices = () => {
               ></div>
             </div>
 
-            <div className="col-9 pe-3 carousel-item active">
-              <div className="pe-3">
+            <div className="col-12 col-lg-9 pe-lg-3 carousel-item active">
+              <div className="pe-lg-3">
                 <p>{serviceContent}</p>
                 <div
                   style={{ overflowX: "auto", paddingRight: "25%" }}
-                  className="d-flex"
+                  className="d-flex flex-wrap flex-lg-nowrap justify-content-center"
                 >
                   {imagesLoading && (
-                    <div className="d-flex justify-content-center">
+                    <div className="d-flex justify-content-center w-100">
                       <div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>
                       </div>
@@ -168,9 +181,13 @@ const OurServices = () => {
                   {!imagesLoading &&
                     serviceImages.map((image, imageIndex) => (
                       <img
-                        style={{ height: "169px", width: "269px" }}
+                        style={{
+                          height: "auto",
+                          width: "100%",
+                          maxWidth: "269px",
+                        }}
                         key={imageIndex}
-                        className="mx-2 rounded"
+                        className="mx-2 mb-2 rounded"
                         src={image.source_url}
                         alt={image.alt_text}
                       />

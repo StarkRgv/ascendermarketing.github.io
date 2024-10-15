@@ -40,7 +40,7 @@ const OurBrand = () => {
             {!loading &&
               clients.map((client, index) => (
                 <img
-                  className="me-5"
+                  className="me-4 mb-3 client-logo"
                   key={index}
                   src={client.featured_image.url}
                   alt={client.title.rendered}

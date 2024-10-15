@@ -13,37 +13,44 @@ const Header = ({ openNav, isOpen, closeNav }) => (
       justifyContent: "space-between",
       alignItems: "center",
       height: "80px",
+      width: "100%",
     }}
+    className="header-container"
   >
     <img
       src={"/images/Ascender Logo_Black-01 2.png"}
       alt="Logo"
-      style={{ height: "60px" }}
+      style={{
+        width: "150px",
+        height: "auto",
+      }}
     />
-    {!isOpen ? (
-      <img
-        src={"/images/Frame 2.png"}
-        alt="Menu"
-        style={{ height: "40px", cursor: "pointer" }}
-        onClick={openNav}
-      />
-    ) : (
-      <a
-        href="javascript:void(0)"
-        className="closebtn"
-        style={{
-          position: "absolute",
-          // top: "20px",
-          right: "50px",
-          fontSize: "36px",
-          cursor: "pointer",
-          color: "#fff",
-        }}
-        onClick={closeNav}
-      >
-        &times;
-      </a>
-    )}
+    <div style={{ height: "40px", cursor: "pointer" }}>
+      {!isOpen ? (
+        <img
+          src={"/images/Frame 2.png"}
+          alt="Menu"
+          onClick={openNav}
+          style={{ width: "50px", height: "50px" }} // Smaller menu icon for responsiveness
+        />
+      ) : (
+        <a
+          href="javascript:void(0)"
+          className="closebtn"
+          style={{
+            position: "absolute",
+            top: "10px",
+            right: "65px", // Adjust position for mobile screens
+            fontSize: "36px",
+            cursor: "pointer",
+            color: "#fff",
+          }}
+          onClick={closeNav}
+        >
+          &times;
+        </a>
+      )}
+    </div>
   </header>
 );
 

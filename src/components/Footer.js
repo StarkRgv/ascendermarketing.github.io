@@ -4,29 +4,38 @@ const Footer = () => {
   return (
     <section id="contactSection" className="ascender-dark py-5 px-3">
       <h1 className="text-bold outlined text-center">TOGETHER WE EXCEL</h1>
-      <div className="d-flex justify-content-between align-items-center">
-        <div className="text-center m-3">
-          <img src={"/images/Ascender Logo_Black-01 3.png"} />
+
+      <div className="row justify-content-center justify-content-md-between align-items-center">
+        {/* Logo Section - Only visible on larger screens */}
+        <div className="col-lg-3 d-none d-lg-block text-center m-3">
+          <img
+            className="img-fluid"
+            src={"/images/Ascender Logo_Black-01 3.png"}
+            alt="Ascender Logo"
+          />
         </div>
-        <div className="text-white text-center m-3">
+
+        {/* Contact Info Section */}
+        <div className="col-lg-5 col-md-6 col-12 text-white text-center m-3">
           <h2>
             <span className="text-bold">Want to collaborate?</span>
             <br />
             Have queries?
           </h2>
-
           <p>
             Write to us at{" "}
             <a href="mailto:info@ascendermarketing.com">
               info@ascendermarketing.com
             </a>
             <br />
-            For HR related queries email us on{" "}
+            For HR related queries, email us on{" "}
             <a href="mailto:swati@ascendermarketing.com">
               swati@ascendermarketing.com
             </a>
           </p>
-          <div className="row">
+
+          {/* Social Media Icons */}
+          <div className="mt-3">
             <p className="text-bold">Follow Us</p>
             <div className="d-flex justify-content-center">
               <a
@@ -38,6 +47,7 @@ const Footer = () => {
                   style={{ height: 30 }}
                   className="me-2"
                   src={"/images/Insta.png"}
+                  alt="Instagram"
                 />
               </a>
               <a
@@ -49,6 +59,7 @@ const Footer = () => {
                   style={{ height: 30 }}
                   className="me-2"
                   src={"/images/twitter.png"}
+                  alt="Twitter"
                 />
               </a>
               <a
@@ -60,6 +71,7 @@ const Footer = () => {
                   style={{ height: 30 }}
                   className="me-2"
                   src={"/images/facebook.png"}
+                  alt="Facebook"
                 />
               </a>
               <a
@@ -71,12 +83,15 @@ const Footer = () => {
                   style={{ height: 30 }}
                   className="me-2"
                   src={"/images/youtube.png"}
+                  alt="YouTube"
                 />
               </a>
             </div>
           </div>
         </div>
-        <div className="text-white m-3">
+
+        {/* Address Section */}
+        <div className="col-lg-3 col-md-6 col-12 text-white text-center m-3">
           <h6 className="text-bold">Contact Us</h6>
           <h2 style={{ textShadow: "1px 1px 2px #fff" }}>
             Ascender Marketing Solutions Private Limited
@@ -85,13 +100,15 @@ const Footer = () => {
             Tower A, Paras Twin Towers, Golf Course Road, Sector 54, Gurugram,
             Haryana, 122011
           </p>
-          <div className="d-flex align-items-center justify-content-start">
+          <div className="d-flex align-items-center justify-content-center">
             <div>
-              <div className="d-flex align-items-center">
+              {/* Phone Numbers */}
+              <div className="d-flex align-items-center mb-2">
                 <img
                   style={{ height: 20 }}
                   className="me-1"
                   src={"/images/Phone.png"}
+                  alt="Phone"
                 />
                 <span className="mx-2">
                   <a
@@ -109,11 +126,14 @@ const Footer = () => {
                   </a>
                 </span>
               </div>
-              <div className="d-flex align-items-center mt-2">
+
+              {/* Email */}
+              <div className="d-flex align-items-center">
                 <img
                   style={{ height: 20 }}
                   className="me-1"
                   src={"/images/Email.png"}
+                  alt="Email"
                 />
                 <a
                   className="text-white text-decoration-none"

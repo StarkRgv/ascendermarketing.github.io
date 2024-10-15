@@ -27,7 +27,7 @@ const HowWeWork = () => {
 
   return (
     <section className="p-5">
-      <h2 className="text-bold">How we work</h2>
+      <h2 className="text-bold text-center">How We Work</h2>
 
       <div
         id="carouselExampleIndicators1"
@@ -50,7 +50,7 @@ const HowWeWork = () => {
                   onClick={() => setActive(index)}
                   data-bs-target="#carouselExampleIndicators1"
                   data-bs-slide-to={index}
-                  className={`col-2 text-center text-nowrap pointer works-heading ${
+                  className={`col-6 col-md-4 col-lg-2 text-center text-nowrap pointer works-heading ${
                     active === index ? "active" : ""
                   }`}
                 >
@@ -64,14 +64,19 @@ const HowWeWork = () => {
                   key={index}
                   className={`${
                     index === 0 ? "active" : ""
-                  } col-9 pe-3 carousel-item`}
+                  } col-12 col-md-10 col-lg-9 pe-3 carousel-item`}
                 >
                   <div
                     style={{ backgroundColor: "#19192d" }}
-                    className="p-3 rounded-4 d-flex"
+                    className="p-3 rounded-4 d-flex flex-column flex-md-row"
                   >
-                    <img src={work.featured_image.url} />
-                    <div className="text-white w-50 m-auto p-3">
+                    <img
+                      src={work.featured_image.url}
+                      className="img-fluid mb-3 mb-md-0"
+                      alt={work.title.rendered}
+                      style={{ maxHeight: "200px", objectFit: "cover" }} // Ensure image fits nicely
+                    />
+                    <div className="text-white w-100 m-auto p-3">
                       <h5 className="text-left">{work.title.rendered}</h5>
                       <p>{removeHtmlTags(work.content.rendered)}</p>
                     </div>

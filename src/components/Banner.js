@@ -22,8 +22,7 @@ const Banner = () => {
     >
       {/* Banner Content */}
       <img
-        className="d-none w-100"
-        style={{ height: "800px" }}
+        className="d-none w-100 banner-image"
         src={"/images/Banner.png"}
         alt="Banner"
       />
@@ -32,8 +31,8 @@ const Banner = () => {
         style={{ height: "700px", zIndex: 1, position: "relative" }}
         preload="auto"
         autoPlay={true}
-        loop="loop"
-        muted="muted"
+        loop
+        muted
       >
         <source src={"/images/vdo.mp4"} type="video/mp4" />
       </video>
@@ -63,10 +62,10 @@ const Banner = () => {
       >
         <table>
           <tr>
-            <td width={310}>
+            <td className="text-center" width={310}>
               <h4 className="text-white">In Ascender we take care</h4>
             </td>
-            <td width={250}>
+            <td className="text-center" width={250}>
               <h4 className="text-rotator">
                 <span className="animated-text gradiant-blue text-bold">
                   {eventsData[activeEvent]}

@@ -6,7 +6,7 @@ const Sidebar = ({ isOpen, scrollToSection }) => {
     <div
       className="sidenav"
       style={{
-        width: isOpen ? "25%" : "0",
+        width: isOpen ? "250px" : "0", // Set fixed width for larger screens
         opacity: isOpen ? 1 : 0,
         transition: "width 0.3s, opacity 0.3s",
         overflowX: "hidden",
@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, scrollToSection }) => {
       <a href="#" onClick={() => scrollToSection("clientsSection")}>
         Our Clients
       </a>
-      <a href="#" onClick={() => scrollToSection("serviveSection")}>
+      <a href="#" onClick={() => scrollToSection("serviceSection")}>
         Our Services
       </a>
       <a href="#" onClick={() => scrollToSection("workSection")}>

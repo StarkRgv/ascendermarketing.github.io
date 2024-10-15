@@ -88,25 +88,27 @@ const OurWork = () => {
     if (!eventsData) return null;
     return (
       <>
-        <div
-          className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
-            eventId === "all" ? "active" : ""
-          }`}
-          onClick={() => setEventId("all")}
-        >
-          All
-        </div>
-        {eventsData.map((event) => (
+        <div className="d-flex flex-wrap justify-content-center mt-4 responsive-buttons">
           <div
-            key={event.id}
             className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
-              eventId === event.id ? "active" : ""
+              eventId === "all" ? "active" : ""
             }`}
-            onClick={() => setEventId(event.id)}
+            onClick={() => setEventId("all")}
           >
-            {event.title.rendered}
+            All
           </div>
-        ))}
+          {eventsData.map((event) => (
+            <div
+              key={event.id}
+              className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
+                eventId === event.id ? "active" : ""
+              }`}
+              onClick={() => setEventId(event.id)}
+            >
+              {event.title.rendered}
+            </div>
+          ))}
+        </div>
       </>
     );
   }, [eventId, eventsData]);
@@ -119,37 +121,39 @@ const OurWork = () => {
       id="workSection"
       className="ascender-dark m-auto py-5 text-white text-center"
     >
-      <h1 className="text-bold">Our Work</h1>
-      <p>
-        Join hands with Ascender Marketing to transform your ideas into
-        extraordinary realities. Our work reflects commitment and passion
-        towards each event and crafts unforgettable experiences for our clients
-        and their audience.
-        <br />
-        <br />
-        Live this excellence of seamless execution and unique solutions that
-        have accumulated trust from countless clients. Help us help you make all
-        your events shine from intimate gatherings to grand-scale celebrations,
-        as we embark on a beautiful journey of chasing dreams!
-      </p>
+      <div className="container">
+        <h1 className="text-bold">Our Work</h1>
+        <p>
+          Join hands with Ascender Marketing to transform your ideas into
+          extraordinary realities. Our work reflects commitment and passion
+          towards each event and crafts unforgettable experiences for our
+          clients and their audience.
+          <br />
+          <br />
+          Live this excellence of seamless execution and unique solutions that
+          have accumulated trust from countless clients. Help us help you make
+          all your events shine from intimate gatherings to grand-scale
+          celebrations, as we embark on a beautiful journey of chasing dreams!
+        </p>
 
-      {loading && (
-        <div className="d-flex justify-content-center">
-          <div className="spinner-border" role="status">
-            <span className="visually-hidden"></span>
+        {loading && (
+          <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden"></span>
+            </div>
           </div>
-        </div>
-      )}
-      {error && <ErrorMessage message="Failed to fetch Work data" />}
-      {!loading && !error && (
-        <>
-          <div className="d-flex align-items-center justify-content-center mt-5">
-            {renderButtons}
-          </div>
+        )}
+        {error && <ErrorMessage message="Failed to fetch Work data" />}
+        {!loading && !error && (
+          <>
+            <div className="d-flex align-items-center justify-content-center mt-5">
+              {renderButtons}
+            </div>
 
-          <ImageGallery images={eventImages} imagesLoading={imagesLoading} />
-        </>
-      )}
+            <ImageGallery images={eventImages} imagesLoading={imagesLoading} />
+          </>
+        )}
+      </div>
     </section>
   );
 };

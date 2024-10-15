@@ -3,10 +3,11 @@ import { placeData } from "../predefinedData";
 
 const OurPresence = () => {
   const [activePlace, setActivePlace] = useState("Gurugram");
+
   return (
     <section className="position-relative ascender-light px-3">
       <div className="row m-0">
-        <div className="col-3">
+        <div className="col-12 col-md-4">
           <h2 className="text-bold">Our Presence</h2>
           <div className="border bg-white">
             {placeData.map((place) => (
@@ -16,7 +17,7 @@ const OurPresence = () => {
                     if (!place.map) return;
                     setActivePlace(place.name);
                   }}
-                  className="d-flex justify-content-between align-items-center"
+                  className="d-flex justify-content-center justify-content-md-between align-items-center"
                 >
                   <h4
                     title={place.address.description}
@@ -33,11 +34,13 @@ const OurPresence = () => {
           </div>
         </div>
 
-        <div className="col-9">
+        <div className="col-12 col-md-8">
           <iframe
             src={placeData.find((place) => place.name === activePlace).map}
             width="100%"
             height="600px"
+            style={{ border: 0 }} // Optional: remove iframe border
+            className="mt-3"
           />
         </div>
       </div>
