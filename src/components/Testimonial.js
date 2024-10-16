@@ -116,7 +116,10 @@ const Testimonial = () => {
                       style={{ borderRadius: "50%" }}
                       height="72"
                       width="72"
-                      src={testimonial.featured_image.url}
+                      src={
+                        testimonial.featured_image.url ??
+                        "/images/Default_Testimonial.png"
+                      }
                     />
 
                     <div className="ms-3">
