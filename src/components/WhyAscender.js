@@ -17,7 +17,7 @@ const WhyAscender = () => {
             }}
           ></div>
 
-          <h2 className="mb-3 text-center text-md-left">
+          <h2 className="mb-3 text-center">
             Why <span className="text-bold">Ascender?</span>
           </h2>
 

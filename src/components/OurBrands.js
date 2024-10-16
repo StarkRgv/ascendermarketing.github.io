@@ -26,27 +26,28 @@ const OurBrand = () => {
   return (
     <section id="clientsSection" className="ascender-light p-5">
       <h2 className="text-bold text-center">Brands trusted on us</h2>
-
-      <div className="slider-container">
-        <div className="slider">
-          <div className="logos">
-            {loading && (
-              <div className="d-flex justify-content-center">
-                <div className="spinner-border" role="status">
-                  <span className="visually-hidden"></span>
+      <div className="container">
+        <div className="slider-container">
+          <div className="slider">
+            <div className="logos">
+              {loading && (
+                <div className="d-flex justify-content-center">
+                  <div className="spinner-border" role="status">
+                    <span className="visually-hidden"></span>
+                  </div>
                 </div>
-              </div>
-            )}
-            {!loading &&
-              clients.map((client, index) => (
-                <img
-                  className="me-4 mb-3 client-logo"
-                  key={index}
-                  src={client.featured_image.url}
-                  alt={client.title.rendered}
-                />
-              ))}
-            {error && <ErrorMessage message="Failed to fetch brand data" />}
+              )}
+              {!loading &&
+                clients.map((client, index) => (
+                  <img
+                    className="me-4 mb-3 client-logo"
+                    key={index}
+                    src={client.featured_image.url}
+                    alt={client.title.rendered}
+                  />
+                ))}
+              {error && <ErrorMessage message="Failed to fetch brand data" />}
+            </div>
           </div>
         </div>
       </div>

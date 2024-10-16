@@ -90,7 +90,7 @@ const OurServices = () => {
   return (
     <section id="serviceSection" className="py-5 my-5 ascender-light">
       <div className="container m-auto text-center">
-        <h2 className="text-bold">Our Services</h2>
+        <h2 className="text-bold text-center">Our Services</h2>
         <p>
           We turn events into unforgettable experiences. Our comprehensive suite
           of services is designed to elevate your occasions, be it corporate

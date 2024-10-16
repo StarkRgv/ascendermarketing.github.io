@@ -122,7 +122,7 @@ const OurWork = () => {
       className="ascender-dark m-auto py-5 text-white text-center"
     >
       <div className="container">
-        <h1 className="text-bold">Our Work</h1>
+        <h2 className="text-bold text-center">Our Work</h2>
         <p>
           Join hands with Ascender Marketing to transform your ideas into
           extraordinary realities. Our work reflects commitment and passion

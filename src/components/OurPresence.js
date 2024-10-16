@@ -5,10 +5,10 @@ const OurPresence = () => {
   const [activePlace, setActivePlace] = useState("Gurugram");
 
   return (
-    <section className="position-relative ascender-light px-3">
+    <section className="position-relative ascender-light px-3 py-5">
+      <h2 className="text-bold text-center">Our Presence</h2>
       <div className="row m-0">
         <div className="col-12 col-md-4">
-          <h2 className="text-bold">Our Presence</h2>
           <div className="border bg-white">
             {placeData.map((place) => (
               <div className="place pointer p-3 my-3" key={place.name}>
