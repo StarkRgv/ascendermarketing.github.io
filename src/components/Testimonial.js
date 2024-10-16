@@ -117,8 +117,9 @@ const Testimonial = () => {
                       height="72"
                       width="72"
                       src={
-                        testimonial.featured_image.url ??
-                        "/images/Default_Testimonial.png"
+                        testimonial.featured_image
+                          ? testimonial.featured_image.url
+                          : "/images/Default_Testimonial.png"
                       }
                     />
 
