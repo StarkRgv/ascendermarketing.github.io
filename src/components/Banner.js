@@ -16,7 +16,7 @@ const Banner = () => {
 
   return (
     <section
-      id="homeSection"
+      id="home"
       className="position-relative"
       style={{ backgroundColor: "#000" }}
     >

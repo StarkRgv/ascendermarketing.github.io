@@ -45,7 +45,7 @@ const Testimonial = () => {
   }
 
   return (
-    <section id="testimonialSection" className="p-5">
+    <section id="testimonials" className="p-5">
       {loading && (
         <div className="d-flex justify-content-center">
           <div className="spinner-border" role="status">

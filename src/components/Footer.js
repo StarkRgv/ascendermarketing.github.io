@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section id="contactSection" className="ascender-dark py-5 px-3">
+    <section id="contact-us" className="ascender-dark py-5 px-3">
       <h1 className="text-bold outlined text-center">TOGETHER WE EXCEL</h1>
       <div className="container">
         <div className="row justify-content-center justify-content-md-between align-items-center">

@@ -88,7 +88,7 @@ const OurServices = () => {
   }, [serviceId, serviceData]);
 
   return (
-    <section id="serviceSection" className="py-5 my-5 ascender-light">
+    <section id="our-services" className="py-5 my-5 ascender-light">
       <div className="container m-auto text-center">
         <h2 className="text-bold text-center">Our Services</h2>
         <p>

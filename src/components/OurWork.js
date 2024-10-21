@@ -118,7 +118,7 @@ const OurWork = () => {
 
   return (
     <section
-      id="workSection"
+      id="our-work"
       className="ascender-dark m-auto py-5 text-white text-center"
     >
       <div className="container">
