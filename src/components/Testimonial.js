@@ -126,7 +126,7 @@ const Testimonial = () => {
                     <div className="ms-3">
                       <h5 className="text-bold my-2">{testimonial.acf.name}</h5>
                       <p className="mb-1">{testimonial.acf.designation}</p>
-                      <p className="mb-1 text-bold">
+                      <p className="mb-1 text-bold company-badge">
                         {testimonial.acf.company}
                       </p>
                     </div>

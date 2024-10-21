@@ -114,25 +114,23 @@ const OurServices = () => {
       {!loading && !error && (
         <div
           id="carouselExampleIndicators0"
-          className="carousel carousel-dark slide my-5"
+          className="carousel carousel-dark slide my-5 px-3"
         >
           {/* Responsive Heading Section */}
           <div className="row">
-            <div className="col-12 d-flex flex-lg-row flex-column">
+            <div className="col-12 d-flex flex-lg-row flex-column gap-1">
               {serviceData.map((service, index) => (
                 <h3
                   key={index}
-                  onClick={() => {
-                    setServiceId(service.id);
-                  }}
+                  onClick={() => setServiceId(service.id)}
                   data-bs-target="#carouselExampleIndicators0"
                   data-bs-slide-to={index}
                   className={`text-center text-nowrap pointer service-heading ${
                     serviceId === service.id ? "active" : ""
-                  } p-1`}
+                  } p-0`}
                   style={{
                     cursor: "pointer",
-                    flex: "1", // Distribute items equally in the row on large screens
+                    flex: "1",
                   }}
                 >
                   {service.title.rendered}
@@ -142,57 +140,38 @@ const OurServices = () => {
           </div>
 
           {/* Carousel Content */}
-          <div className="carousel-inner row mt-3">
+          <div className="carousel-inner d-flex flex-column flex-lg-row mt-3">
             {/* Static Line for large screens */}
-            <div className="d-none d-lg-block col-3 position-relative">
-              <hr
-                style={{
-                  borderTop: "2px solid #C5D1E8",
-                  color: "#C5D1E8",
-                }}
-              />
-              <div
-                className="position-absolute"
-                style={{
-                  height: "10px",
-                  width: "10px",
-                  border: "1px solid #C5D1E8",
-                  borderRadius: "5px",
-                  right: "3px",
-                  top: "11.5px",
-                }}
-              ></div>
+            <div className="d-none d-lg-flex flex-column align-items-end position-relative pe-3 col-lg-3">
+              <hr className="carousel-line w-100" />
+              <div className="carousel-dot"></div>
             </div>
 
-            <div className="col-12 col-lg-9 pe-lg-3 carousel-item active">
-              <div className="pe-lg-3">
-                <p>{serviceContent}</p>
-                <div
-                  style={{ overflowX: "auto", paddingRight: "25%" }}
-                  className="d-flex flex-wrap flex-lg-nowrap justify-content-center"
-                >
-                  {imagesLoading && (
-                    <div className="d-flex justify-content-center w-100">
-                      <div className="spinner-border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                      </div>
+            {/* Service Content and Images */}
+            <div className="d-flex flex-column col-lg-9">
+              <p className="text-center">{serviceContent}</p>
+
+              <div
+                className="image-gallery d-flex flex-wrap justify-content-center"
+                style={{ overflowX: "auto" }}
+              >
+                {imagesLoading ? (
+                  <div className="d-flex justify-content-center w-100">
+                    <div className="spinner-border" role="status">
+                      <span className="visually-hidden">Loading...</span>
                     </div>
-                  )}
-                  {!imagesLoading &&
-                    serviceImages.map((image, imageIndex) => (
-                      <img
-                        style={{
-                          height: "auto",
-                          width: "100%",
-                          maxWidth: "269px",
-                        }}
-                        key={imageIndex}
-                        className="mx-2 mb-2 rounded"
-                        src={image.source_url}
-                        alt={image.alt_text}
-                      />
-                    ))}
-                </div>
+                  </div>
+                ) : (
+                  serviceImages.map((image, imageIndex) => (
+                    <img
+                      key={imageIndex}
+                      className="carousel-image mx-2 mb-2 rounded"
+                      src={image.source_url}
+                      alt={image.alt_text}
+                      loading="lazy"
+                    />
+                  ))
+                )}
               </div>
             </div>
           </div>
