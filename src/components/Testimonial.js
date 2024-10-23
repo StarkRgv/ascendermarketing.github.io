@@ -81,9 +81,9 @@ const Testimonial = () => {
             </marquee>
           </div>
 
-          <h4 className="text-center">
-            Words from our <span className="text-bold">Happy Clients</span>
-          </h4>
+          <h2 className="text-bold text-center">
+            Words from our Happy Clients
+          </h2>
           <p className="text-center">
             We take pride in ensuring that our clients have a good working
             experience.

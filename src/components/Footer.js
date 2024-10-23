@@ -92,7 +92,7 @@ const Footer = () => {
 
           {/* Address Section */}
           <div className="col-lg-3 col-md-6 col-12 text-white text-center m-3">
-            <h4 className="text-bold">Contact Us</h4>
+            <h2 className="text-bold">Contact Us</h2>
             <h2 style={{ textShadow: "1px 1px 2px #fff" }}>
               Ascender Marketing Solutions Private Limited
             </h2>

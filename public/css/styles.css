@@ -43,6 +43,7 @@ body {
 .works-heading.active {
   color: #3428c2;
   font-family: Nunito-Bold;
+  font-size: 24px;
 }
 
 .font-Nunito-regular {
@@ -362,8 +363,8 @@ video {
 .sidenav a {
   padding: 15px 20px;
   text-decoration: none;
-  font-size: 20px;
-  color: #818181;
+  font-size: 20px !important;
+  color: #ffffff !important;
   display: block;
   transition: 0.3s;
 }
@@ -389,8 +390,8 @@ video {
 }
 
 .sidenav a.active {
-  color: white;
-  background-color: #575757; /* Highlight color */
+  color: white !important;
+  background-color: #19192d; /* Highlight color */
   font-weight: bold;
 }
 
@@ -431,4 +432,34 @@ video {
   height: auto;
   width: 100%;
   max-width: 269px;
+}
+
+/* Header */
+
+/* By default, the layout on large screens is flex-start for alignment */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-icon {
+  margin-right: 15px;
+}
+
+.logo-large {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  /* For small screens */
+  .header-container {
+    justify-content: center;
+  }
+
+  .logo-large {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
