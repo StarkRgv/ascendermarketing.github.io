@@ -81,7 +81,7 @@ const Testimonial = () => {
             </marquee>
           </div>
 
-          <h2 className="text-bold text-center">
+          <h2 className="text-bold outlined-dark text-center">
             Words from our Happy Clients
           </h2>
           <p className="text-center">
@@ -124,7 +124,12 @@ const Testimonial = () => {
                     />
 
                     <div className="ms-3">
-                      <h5 className="text-bold my-2">{testimonial.acf.name}</h5>
+                      <h5
+                        style={{ color: "#e56039", fontsize: "24px" }}
+                        className="my-2"
+                      >
+                        {testimonial.acf.name}
+                      </h5>
                       <p className="mb-1">{testimonial.acf.designation}</p>
                       <p className="mb-1 text-bold company-badge">
                         {testimonial.acf.company}

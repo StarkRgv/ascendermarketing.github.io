@@ -22,7 +22,7 @@ const OurPresence = () => {
                   <h4
                     title={place.address.description}
                     style={{
-                      color: place.name === activePlace ? "blue" : "black",
+                      color: place.name === activePlace ? "#e56039" : "",
                     }}
                     className="font18"
                   >
