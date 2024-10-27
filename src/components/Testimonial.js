@@ -80,10 +80,11 @@ const Testimonial = () => {
               ))}
             </marquee>
           </div>
-
-          <h2 className="text-bold outlined-dark text-center">
-            Words from our Happy Clients
-          </h2>
+          <div className="d-flex justify-content-center py-3">
+            <h2 className="text-bold outlined happy-clients-title">
+              Words from our Happy Clients
+            </h2>
+          </div>
           <p className="text-center">
             We take pride in ensuring that our clients have a good working
             experience.

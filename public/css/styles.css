@@ -470,3 +470,9 @@ video {
     margin-right: auto;
   }
 }
+
+.happy-clients-title {
+  background-color: #19192d;
+  padding: 25px;
+  border-radius: 30px;
+}
