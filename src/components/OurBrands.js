@@ -25,7 +25,7 @@ const OurBrand = () => {
 
   return (
     <section id="happy-clients" className="ascender-light p-5">
-      <h2 className="text-bold text-center">Brands trusted on us</h2>
+      <h2 className="text-bold text-center pb-5">Brands trusted on us</h2>
       <div className="container">
         <div className="slider-container">
           <div className="slider">
@@ -37,6 +37,15 @@ const OurBrand = () => {
                   </div>
                 </div>
               )}
+              {!loading &&
+                clients.map((client, index) => (
+                  <img
+                    className="me-4 mb-3 client-logo"
+                    key={index}
+                    src={client.featured_image.url}
+                    alt={client.title.rendered}
+                  />
+                ))}
               {!loading &&
                 clients.map((client, index) => (
                   <img

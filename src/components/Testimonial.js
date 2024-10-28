@@ -81,7 +81,7 @@ const Testimonial = () => {
             </marquee>
           </div>
           <div className="d-flex justify-content-center py-3">
-            <h2 className="text-bold outlined happy-clients-title">
+            <h2 className="text-bold outlined-dark">
               Words from our Happy Clients
             </h2>
           </div>
