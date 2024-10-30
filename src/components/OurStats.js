@@ -9,7 +9,9 @@ const OurStats = () => {
   return (
     <section className="ascender-dark py-5">
       <div className="container">
-        <h1 className="text-bold outlined text-center mb-4">OUR STATS</h1>
+        <h2 style={{ color: "#ffffff" }} className="text-center mb-4">
+          Our Stats
+        </h2>
 
         <div className="row" ref={elemRef}>
           {statsData.map((stat) => (

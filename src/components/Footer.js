@@ -3,7 +3,9 @@ import React from "react";
 const Footer = () => {
   return (
     <section id="contact-us" className="ascender-dark py-5 px-3">
-      <h1 className="text-bold outlined text-center">TOGETHER WE EXCEL</h1>
+      <h2 className="text-center" style={{ color: "#ffffff" }}>
+        Together We Excel
+      </h2>
       <div className="container">
         <div className="row justify-content-center justify-content-md-between align-items-center">
           {/* Logo Section - Only visible on larger screens */}
@@ -24,12 +26,18 @@ const Footer = () => {
             </h2>
             <p>
               Write to us at{" "}
-              <a href="mailto:info@ascendermarketing.com">
+              <a
+                style={{ textDecoration: "none" }}
+                href="mailto:info@ascendermarketing.com"
+              >
                 info@ascendermarketing.com
               </a>
               <br />
               For HR related queries, email us on{" "}
-              <a href="mailto:swati@ascendermarketing.com">
+              <a
+                style={{ textDecoration: "none" }}
+                href="mailto:swati@ascendermarketing.com"
+              >
                 swati@ascendermarketing.com
               </a>
             </p>
@@ -80,7 +88,7 @@ const Footer = () => {
                   rel="noreferrer"
                 >
                   <img
-                    style={{ height: 30 }}
+                    style={{ height: 35 }}
                     className="me-2"
                     src={"/images/youtube.png"}
                     alt="YouTube"
@@ -95,9 +103,7 @@ const Footer = () => {
             <h2 className="text-bold" style={{ color: "#e56039" }}>
               Contact Us
             </h2>
-            <h2 style={{ textShadow: "1px 1px 2px #fff" }}>
-              Ascender Marketing Solutions Private Limited
-            </h2>
+            <h2>Ascender Marketing Solutions Private Limited</h2>
             <p>
               Tower A, Paras Twin Towers, Golf Course Road, Sector 54, Gurugram,
               Haryana, 122011
