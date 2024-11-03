@@ -88,7 +88,7 @@ const OurWork = () => {
     if (!eventsData) return null;
     return (
       <>
-        <div className="d-flex flex-wrap justify-content-center mt-4 responsive-buttons">
+        {/* <div className="d-flex flex-wrap justify-content-center mt-4 responsive-buttons">
           <div
             className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
               eventId === "all" ? "active" : ""
@@ -97,7 +97,7 @@ const OurWork = () => {
           >
             All
           </div>
-          {/* {eventsData.map((event) => (
+          {eventsData.map((event) => (
             <div
               key={event.id}
               className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
@@ -107,8 +107,8 @@ const OurWork = () => {
             >
               {event.title.rendered}
             </div>
-          ))} */}
-        </div>
+          ))}
+        </div> */}
       </>
     );
   }, [eventId, eventsData]);
