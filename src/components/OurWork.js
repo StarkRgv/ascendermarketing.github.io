@@ -55,21 +55,21 @@ const OurWork = () => {
       let images = [];
 
       try {
-        if (eventId === "all") {
-          const allImages = await Promise.all(
-            eventsData.flatMap(async (event) => {
-              const acfArr = event?.acf.event_images || [];
-              return await fetchEventImages(acfArr);
-            })
-          );
-          images = allImages.flat();
-        } else {
-          const selectedEvent = eventsData.find(
-            (event) => event.id === eventId
-          );
-          const acfArr = selectedEvent?.acf.event_images || [];
-          images = await fetchEventImages(acfArr);
-        }
+        // if (eventId === "all") {
+        const allImages = await Promise.all(
+          eventsData.flatMap(async (event) => {
+            const acfArr = event?.acf.event_images || [];
+            return await fetchEventImages(acfArr);
+          })
+        );
+        images = allImages.flat();
+        // } else {
+        //   const selectedEvent = eventsData.find(
+        //     (event) => event.id === eventId
+        //   );
+        //   const acfArr = selectedEvent?.acf.event_images || [];
+        //   images = await fetchEventImages(acfArr);
+        // }
 
         setEventImages(images);
       } catch (error) {
@@ -97,7 +97,7 @@ const OurWork = () => {
           >
             All
           </div>
-          {eventsData.map((event) => (
+          {/* {eventsData.map((event) => (
             <div
               key={event.id}
               className={`work-section-button border rounded py-1 px-3 mx-2 pointer ${
@@ -107,7 +107,7 @@ const OurWork = () => {
             >
               {event.title.rendered}
             </div>
-          ))}
+          ))} */}
         </div>
       </>
     );
@@ -122,18 +122,18 @@ const OurWork = () => {
       className="ascender-dark m-auto py-5 text-white text-center"
     >
       <div className="container">
-        <h2 className="text-bold text-center">Our Work</h2>
+        <h1 className="text-bold text-center">Our Work</h1>
         <p>
           Join hands with Ascender Marketing to transform your ideas into
           extraordinary realities. Our work reflects commitment and passion
           towards each event and crafts unforgettable experiences for our
           clients and their audience.
-          <br />
+          {/* <br />
           <br />
           Live this excellence of seamless execution and unique solutions that
           have accumulated trust from countless clients. Help us help you make
           all your events shine from intimate gatherings to grand-scale
-          celebrations, as we embark on a beautiful journey of chasing dreams!
+          celebrations, as we embark on a beautiful journey of chasing dreams! */}
         </p>
 
         {loading && (

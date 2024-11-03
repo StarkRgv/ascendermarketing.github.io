@@ -17,7 +17,7 @@ const WhyAscender = () => {
             }}
           ></div>
 
-          <h2 className="mb-3 text-bold text-center">Why Ascender?</h2>
+          <h1 className="mb-3 text-bold text-center">Why Ascender?</h1>
 
           <img
             className="d-none d-lg-block"
@@ -60,7 +60,7 @@ const WhyAscender = () => {
             alt="Maroon"
           />
 
-          <p className="text-left text-justify">
+          <p className="text-left" style={{ textAlign: "justify" }}>
             Ascender Marketing is your prime destination to make your events
             successful! We provide seamless and creative event management
             services by providing experiences where passion meets quality by

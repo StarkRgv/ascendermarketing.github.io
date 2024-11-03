@@ -28,7 +28,7 @@ const HowWeWork = () => {
   return (
     <section className="p-5">
       <div className="container">
-        <h2 className="text-bold text-center">How We Work</h2>
+        <h1 className="text-bold text-center">How We Work</h1>
         <div
           id="carouselExampleIndicators1"
           className="carousel carousel-dark slide my-5"
@@ -45,7 +45,7 @@ const HowWeWork = () => {
             <>
               <div className="row">
                 {workData.map((work, index) => (
-                  <h5
+                  <h3
                     key={index}
                     onClick={() => setActive(index)}
                     data-bs-target="#carouselExampleIndicators1"
@@ -55,7 +55,7 @@ const HowWeWork = () => {
                     }`}
                   >
                     {work.title.rendered}
-                  </h5>
+                  </h3>
                 ))}
               </div>
               <div className="carousel-inner row mt-3">
@@ -77,8 +77,10 @@ const HowWeWork = () => {
                         style={{ maxHeight: "200px", objectFit: "cover" }} // Ensure image fits nicely
                       />
                       <div className="text-white w-100 m-auto p-3">
-                        <h5 className="text-left">{work.title.rendered}</h5>
-                        <p>{removeHtmlTags(work.content.rendered)}</p>
+                        <h3 className="text-left">{work.title.rendered}</h3>
+                        <p style={{ textAlign: "justify" }}>
+                          {removeHtmlTags(work.content.rendered)}
+                        </p>
                       </div>
                     </div>
                   </div>

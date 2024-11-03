@@ -57,20 +57,20 @@ const Banner = () => {
 
       {/* Event Rotator */}
       <div
-        style={{ zIndex: 4, bottom: "10px" }}
+        style={{ zIndex: 4, bottom: "10px", right: "55px" }}
         className="w-100 position-absolute d-flex align-items-center justify-content-center"
       >
         <table>
           <tr>
-            <td className="text-center" width={310}>
-              <h4 className="text-white">In Ascender we take care</h4>
+            <td className="text-center" width={350}>
+              <h3 className="text-white">In Ascender we take care</h3>
             </td>
             <td className="text-center" width={250}>
-              <h4 className="text-rotator">
+              <h3 className="text-rotator">
                 <span className="animated-text gradiant-blue text-bold">
                   {eventsData[activeEvent]}
                 </span>
-              </h4>
+              </h3>
             </td>
           </tr>
         </table>

@@ -90,14 +90,13 @@ const OurServices = () => {
   return (
     <section id="our-services" className="py-5 my-5 ascender-light">
       <div className="container m-auto text-center">
-        <h2 className="text-bold text-center">Our Services</h2>
+        <h1 className="text-bold text-center">Our Services</h1>
         <p>
-          We turn events into unforgettable experiences. Our comprehensive suite
-          of services is designed to elevate your occasions, be it corporate
-          events, promotions, audits, retail experiences, rural engagements, or
-          trade fairs. At Ascender Marketing, we blend creativity with
-          precision, offering strategic event planning, seamless execution, and
-          meticulous evaluation.
+          Our comprehensive suite of services is designed to elevate your
+          occasions, be it corporate events, promotions, audits, retail
+          experiences, rural engagements, or trade fairs. At Ascender Marketing,
+          we blend creativity with precision, offering strategic event planning,
+          seamless execution, and meticulous evaluation.
         </p>
       </div>
 
@@ -149,7 +148,9 @@ const OurServices = () => {
 
             {/* Service Content and Images */}
             <div className="d-flex flex-column col-lg-9">
-              <p className="text-center">{serviceContent}</p>
+              <p style={{ textAlign: "justify" }} className="text-center">
+                {serviceContent}
+              </p>
 
               <div
                 className="image-gallery d-flex flex-wrap justify-content-center"

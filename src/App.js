@@ -33,9 +33,9 @@ function App() {
       <Sidebar isOpen={isNavOpen} scrollToSection={scrollToSection} />
       <Banner />
       <WhyAscender />
-      <OurStats />
-      <HowWeWork />
       <OurVision />
+      <HowWeWork />
+      <OurStats />
       <OurServices />
       <OurWork />
       <OurBrand />

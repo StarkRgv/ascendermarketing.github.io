@@ -3,9 +3,9 @@ import React from "react";
 const Footer = () => {
   return (
     <section id="contact-us" className="ascender-dark py-5 px-3">
-      <h2 className="text-center" style={{ color: "#ffffff" }}>
+      {/* <h2 className="text-center" style={{ color: "#ffffff" }}>
         Together We Excel
-      </h2>
+      </h2> */}
       <div className="container">
         <div className="row justify-content-center justify-content-md-between align-items-center">
           {/* Logo Section - Only visible on larger screens */}
@@ -33,6 +33,7 @@ const Footer = () => {
                 info@ascendermarketing.com
               </a>
               <br />
+              <br />
               For HR related queries, email us on{" "}
               <a
                 style={{ textDecoration: "none" }}
@@ -41,7 +42,7 @@ const Footer = () => {
                 swati@ascendermarketing.com
               </a>
             </p>
-
+            <hr></hr>
             {/* Social Media Icons */}
             <div className="mt-3">
               <p className="text-bold">Follow Us</p>

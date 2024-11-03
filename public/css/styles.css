@@ -32,12 +32,10 @@ body {
 
 .service-heading {
   color: #000000;
-  font-size: 22px !important;
 }
 
 .service-heading.active {
   color: #e56039;
-  font-size: 24px !important;
 }
 
 .service-heading:hover {
@@ -46,7 +44,7 @@ body {
 
 .works-heading.active {
   color: #e56039;
-  font-size: 24px;
+  /* font-size: 24px; */
 }
 
 .works-heading:hover {
@@ -82,7 +80,7 @@ h5 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 22px;
   line-height: 24px;
 }
 

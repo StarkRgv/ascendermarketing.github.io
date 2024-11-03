@@ -81,9 +81,9 @@ const Testimonial = () => {
             </marquee>
           </div>
           <div className="d-flex justify-content-center py-3">
-            <h2 className="text-bold outlined-dark">
+            <h1 className="text-bold outlined-dark">
               Words from our Happy Clients
-            </h2>
+            </h1>
           </div>
           <p className="text-center">
             We take pride in ensuring that our clients have a good working
@@ -152,7 +152,9 @@ const Testimonial = () => {
                       width="16"
                       src={"/images/semicolon.png"}
                     />
-                    <p className="font14">{testimonial.acf.description}</p>
+                    <p style={{ textAlign: "justify" }} className="font18">
+                      {testimonial.acf.description}
+                    </p>
                   </div>
                 </div>
               ))}
