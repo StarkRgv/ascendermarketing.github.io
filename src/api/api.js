@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "https://admissionmantra.in/ascender/wp-json/wp/v2",
+  // baseURL: "https://admissionmantra.in/ascender/wp-json/wp/v2",
+  baseURL: "http://api.ascendermarketing.com/wp-json/wp/v2/",
   headers: {
     "Content-Type": "application/json",
     // Add other custom headers here

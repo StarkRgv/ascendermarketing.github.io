@@ -71,7 +71,7 @@ const HowWeWork = () => {
                       className="p-3 rounded-4 d-flex flex-column flex-md-row"
                     >
                       <img
-                        src={work.featured_image.url}
+                        src={work.featured_image.url ?? ""}
                         className="img-fluid mb-3 mb-md-0"
                         alt={work.title.rendered}
                         style={{ maxHeight: "200px", objectFit: "cover" }} // Ensure image fits nicely
