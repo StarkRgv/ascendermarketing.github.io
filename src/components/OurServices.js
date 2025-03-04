@@ -167,7 +167,7 @@ const OurServices = () => {
                     <img
                       key={imageIndex}
                       className="carousel-image mx-2 mb-2 rounded"
-                      src={image.source_url}
+                      src={image.source_url || "/images/placeholder.jpg"}
                       alt={image.alt_text}
                       loading="lazy"
                     />

@@ -71,9 +71,11 @@ const HowWeWork = () => {
                       className="p-3 rounded-4 d-flex flex-column flex-md-row"
                     >
                       <img
-                        src={work.featured_image.url ?? ""}
+                        src={
+                          work.featured_image?.url || "/images/placeholder.jpg"
+                        }
                         className="img-fluid mb-3 mb-md-0"
-                        alt={work.title.rendered}
+                        alt={work.title?.rendered || "Image"}
                         style={{ maxHeight: "200px", objectFit: "cover" }} // Ensure image fits nicely
                       />
                       <div className="text-white w-100 m-auto p-3">

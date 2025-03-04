@@ -42,7 +42,9 @@ const OurBrand = () => {
                   <img
                     className="me-4 mb-3 client-logo"
                     key={index}
-                    src={client.featured_image.url}
+                    src={
+                      client.featured_image?.url || "/images/placeholder.jpg"
+                    }
                     alt={client.title.rendered}
                   />
                 ))}
@@ -51,7 +53,9 @@ const OurBrand = () => {
                   <img
                     className="me-4 mb-3 client-logo"
                     key={index}
-                    src={client.featured_image.url}
+                    src={
+                      client.featured_image?.url || "/images/placeholder.jpg"
+                    }
                     alt={client.title.rendered}
                   />
                 ))}

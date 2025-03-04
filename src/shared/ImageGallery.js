@@ -18,7 +18,7 @@ const ImageGallery = ({ images, imagesLoading }) => {
       {images.map((image, index) => (
         <div key={index} className="image-item">
           <img
-            src={image.source_url}
+            src={image.source_url || "/images/placeholder.jpg"}
             alt={image.alt_text || `Image ${index + 1}`}
             className="gallery-image"
           />
