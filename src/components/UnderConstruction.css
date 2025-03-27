@@ -1,0 +1,21 @@
+/* UnderConstruction.css */
+
+.under-construction {
+  background-image: url("../../public/images/UC2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 100vh;
+  margin: 0;
+  /* font-family: Arial, sans-serif; */
+}
+
+.text-overlay {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: red;
+  font-family: Quicksand-Regular;
+}

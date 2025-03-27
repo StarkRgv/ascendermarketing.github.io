@@ -12,6 +12,7 @@ import Testimonial from "./components/Testimonial";
 import OurPresence from "./components/OurPresence";
 import Footer from "./components/Footer";
 import OurVision from "./components/OurVision";
+import UnderConstruction from "./components/UnderConstruction";
 
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <>
-      <Header openNav={openNav} isOpen={isNavOpen} closeNav={closeNav} />
+      {/* <Header openNav={openNav} isOpen={isNavOpen} closeNav={closeNav} />
       <Sidebar isOpen={isNavOpen} scrollToSection={scrollToSection} />
       <Banner />
       <WhyAscender />
@@ -41,7 +42,8 @@ function App() {
       <OurBrand />
       <Testimonial />
       <OurPresence />
-      <Footer />
+      <Footer /> */}
+      <UnderConstruction />
     </>
   );
 }
