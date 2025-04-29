@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      {/* <Header openNav={openNav} isOpen={isNavOpen} closeNav={closeNav} />
+      <Header openNav={openNav} isOpen={isNavOpen} closeNav={closeNav} />
       <Sidebar isOpen={isNavOpen} scrollToSection={scrollToSection} />
       <Banner />
       <WhyAscender />
@@ -42,8 +42,8 @@ function App() {
       <OurBrand />
       <Testimonial />
       <OurPresence />
-      <Footer /> */}
-      <UnderConstruction />
+      <Footer />
+      {/* <UnderConstruction /> */}
     </>
   );
 }
